@@ -1,0 +1,31 @@
+name: demo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/pfichtner/freetz-toolchain-docker
+    steps:
+      - name: linux-release
+        run: |
+          cat /etc/*release
+
+      - name: zstd
+        run: |
+          ldconfig -v 2>&1 | grep -B1 " libzstd.so\..*"
+
+      - name: cpio
+        run: |
+          cpio --version
+
+      - name: make
+        run: |
+          make --version
+
+      - name: cmake
+        run: |
+          cmake --version
+
