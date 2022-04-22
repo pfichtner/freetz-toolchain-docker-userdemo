@@ -9,9 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/pfichtner/freetz-toolchain-docker
-      credentials:
-        username: $GITHUB_USER
-        password: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: linux-release
