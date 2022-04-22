@@ -4,9 +4,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  login: 
     runs-on: ubuntu-latest
-
     steps:
     - name: Login to GitHub Container registry
       env:
@@ -16,7 +15,11 @@ jobs:
       with:
         registry: ghcr.io
         username: $GITHUB_USER
-        password: $GITHUB_TOKEN    container:
+        password: $GITHUB_TOKEN
+  
+  build:
+    runs-on: ubuntu-latest
+    container:
       image: ghcr.io/pfichtner/freetz-toolchain-docker
 
     steps:
