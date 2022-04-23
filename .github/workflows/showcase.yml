@@ -12,22 +12,16 @@ jobs:
 
     steps:
       - name: linux-release
-        run: |
-          cat /etc/*release
+        run: cat /etc/*release
 
       - name: zstd
-        run: |
-          ldconfig -v 2>&1 | grep -B1 " libzstd.so\..*"
+        run: ldconfig -v 2>&1 | grep -B1 " libzstd.so\..*"
 
       - name: cpio
-        run: |
-          cpio --version
+        run: cpio --version
 
       - name: make
-        run: |
-          make --version
+        run: make --version
 
       - name: cmake
-        run: |
-          cmake --version
-
+        run: cmake --version
